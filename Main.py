@@ -63,6 +63,8 @@ class DoublyCircularLinkedList:
                     temp.next.previous = node
                     temp.next = node
                     node.previous = temp
+                    if index == self.count-1:
+                        self.head.prev = node
                     break
                 temp = temp.next
                 if temp == self.head:
