@@ -53,9 +53,7 @@ class DoublyCircularLinkedList:
         
         if index == 0:
             return self.add_at_head(data)
-        elif index == self.count-1:
-            return self.add_at_tail(data)
-        elif index > 0 and index < self.count-1:
+        elif index > 0:
             node = Node(data)
             temp = self.head
             count = 0
@@ -70,6 +68,7 @@ class DoublyCircularLinkedList:
                 if temp == self.head:
                     return False
                 count += 1
+               self.count += 1
             return True
         else:
             return False
@@ -94,6 +93,7 @@ class DoublyCircularLinkedList:
             if count == index:
                 temp.previous.next = temp.next
                 temp.next.previous = temp.previous
+                self.count -= 1
                 return True
             temp = temp.next
             if temp == self.head:
@@ -109,7 +109,7 @@ class DoublyCircularLinkedList:
                 return [temp.previous.data,temp.next.data]
             temp = temp.next
             if temp == self.head:
-                return False
+                return [-1]
             count += 1
         return [-1]
 
