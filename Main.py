@@ -82,7 +82,7 @@ class DoublyCircularLinkedList:
                 return temp.data
             temp = temp.next
             if temp == self.head:
-                return False
+                return -1
             count += 1
         return -1
 
