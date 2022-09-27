@@ -15,14 +15,14 @@ class DoublyCircularLinkedList:
             self.head = Node(data)
             self.count += 1
             return True
-        elif self.head:
+        elif self.head != None:
             node = Node(data)
             temp = self.head
             while temp:
                 x = temp
                 temp = temp.next
                 if temp == self.head:
-                    return False
+                    break
             node.next = x.next
             x.next = node
             node.previous = x
