@@ -42,7 +42,7 @@ class DoublyCircularLinkedList:
             node = Node(data)
             temp = self.head
             node.next = temp
-            node.previous = temp.prev
+            node.previous = temp.previous
             temp.previous = node
             self.head = node
             self.count += 1
