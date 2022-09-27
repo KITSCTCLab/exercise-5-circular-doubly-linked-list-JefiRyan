@@ -53,7 +53,7 @@ class DoublyCircularLinkedList:
         
         if index == 0:
             return self.add_at_head(data)
-        elif index > 0:
+        elif index > 0 and index < self.count:
             node = Node(data)
             temp = self.head
             count = 0
