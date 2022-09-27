@@ -25,8 +25,8 @@ class DoublyCircularLinkedList:
                     return False
             node.next = x.next
             x.next = node
-            node.prev = x
-            self.head.prev = node
+            node.previous = x
+            self.head.previous = node
             self.count += 1
             return True
         return False
@@ -42,8 +42,8 @@ class DoublyCircularLinkedList:
             node = Node(data)
             temp = self.head
             node.next = temp
-            node.prev = temp.prev
-            temp.prev = node
+            node.previous = temp.prev
+            temp.previous = node
             self.head = node
             self.count += 1
             return True
@@ -62,8 +62,8 @@ class DoublyCircularLinkedList:
             while temp:
                 if count == index-1:
                     node.next = temp
-                    node.prev = temp.prev
-                    temp.prev = node
+                    node.previous = temp.previous
+                    temp.previous = node
                     break
                 temp = temp.next
                 if temp == self.head:
@@ -91,8 +91,8 @@ class DoublyCircularLinkedList:
         count = 0
         while temp:
             if count == index:
-                temp.prev.next = temp.next
-                temp.next.prev = temp.prev
+                temp.previous.next = temp.next
+                temp.next.previous = temp.previous
                 return True
             temp = temp.next
             if temp == self.head:
@@ -105,7 +105,7 @@ class DoublyCircularLinkedList:
         count = 0
         while temp:
             if count == index:
-                return [temp.prev.data,temp.next.data]
+                return [temp.previous.data,temp.next.data]
             temp = temp.next
             if temp == self.head:
                 return False
